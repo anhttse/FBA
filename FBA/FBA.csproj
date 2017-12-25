@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -53,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -180,10 +187,42 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Extension\Common.cs" />
+    <Compile Include="Extension\UserAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CL.cs">
+      <DependentUpon>FBA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FBA.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBA.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FBA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FBA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FBA.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FL.cs">
+      <DependentUpon>FBA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PL.cs">
+      <DependentUpon>FBA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RegisterModel\UserRegisterModel.cs" />
+    <Compile Include="Models\SystemUser.cs">
+      <DependentUpon>FBA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Token.cs">
+      <DependentUpon>FBA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -196,6 +235,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\FBA.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FBA.Context.cs</LastGenOutput>
+      <DependentUpon>FBA.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\FBA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FBA.edmx</DependentUpon>
+      <LastGenOutput>FBA.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bg\background.js" />
     <Content Include="Scripts\bg\EasyPack.js" />
     <Content Include="Scripts\bg\TweenLite.min.js" />
@@ -222,6 +271,13 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\FBA.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FBA.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FBA.edmx.diagram">
+      <DependentUpon>FBA.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -260,6 +316,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

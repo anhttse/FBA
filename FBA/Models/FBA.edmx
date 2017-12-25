@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FBLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="P_OF_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Is_Sub" Type="bit" />
+          <Property Name="U_CM_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sub_Done_Time" Type="nvarchar" MaxLength="100" />
+          <Property Name="CL_TYPE" Type="int" />
+        </EntityType>
+        <EntityType Name="FL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="F_OF_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="LC" Type="bigint" />
+        </EntityType>
+        <EntityType Name="PL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="P_Time" Type="nvarchar" MaxLength="250" />
+          <Property Name="Done" Type="bit" />
+          <Property Name="Done_Time" Type="nvarchar" MaxLength="250" />
+          <Property Name="F_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="text" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="User_ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="FBLModelStoreContainer">
+          <EntitySet Name="CL" EntityType="Self.CL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FL" EntityType="Self.FL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PL" EntityType="Self.PL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FBLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="P_OF_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Sub" Type="Boolean" />
+          <Property Name="U_CM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sub_Done_Time" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CL_TYPE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="F_OF_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LC" Type="Int64" />
+        </EntityType>
+        <EntityType Name="PL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="P_Time" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Done" Type="Boolean" />
+          <Property Name="Done_Time" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="F_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="User_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="FBLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLs" EntityType="Self.CL" />
+          <EntitySet Name="FLs" EntityType="Self.FL" />
+          <EntitySet Name="PLs" EntityType="Self.PL" />
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
+          <EntitySet Name="Tokens" EntityType="Self.Token" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FBLModelStoreContainer" CdmEntityContainer="FBLEntities">
+          <EntitySetMapping Name="CLs">
+            <EntityTypeMapping TypeName="FBLModel.CL">
+              <MappingFragment StoreEntitySet="CL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="P_OF_ID" ColumnName="P_OF_ID" />
+                <ScalarProperty Name="Is_Sub" ColumnName="Is_Sub" />
+                <ScalarProperty Name="U_CM_ID" ColumnName="U_CM_ID" />
+                <ScalarProperty Name="Sub_Done_Time" ColumnName="Sub_Done_Time" />
+                <ScalarProperty Name="CL_TYPE" ColumnName="CL_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FLs">
+            <EntityTypeMapping TypeName="FBLModel.FL">
+              <MappingFragment StoreEntitySet="FL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="F_ID" ColumnName="F_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="F_OF_ID" ColumnName="F_OF_ID" />
+                <ScalarProperty Name="LC" ColumnName="LC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLs">
+            <EntityTypeMapping TypeName="FBLModel.PL">
+              <MappingFragment StoreEntitySet="PL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="P_Time" ColumnName="P_Time" />
+                <ScalarProperty Name="Done" ColumnName="Done" />
+                <ScalarProperty Name="Done_Time" ColumnName="Done_Time" />
+                <ScalarProperty Name="F_ID" ColumnName="F_ID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUsers">
+            <EntityTypeMapping TypeName="FBLModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="FBLModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Token1" ColumnName="Token" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

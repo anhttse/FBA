@@ -1,17 +1,32 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 500px;
+}
+
+main-content {
+    position: relative;
+}
+.body-content {
+    position: absolute;
+    position: absolute;
+    padding-left: 15px;
+    padding-right: 15px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
+}
+#login {
+    width: 400px;
+    padding: 60px 100px;
+    background-color: #f9f9f936;
+    border-radius: 5px;
+    /*box-shadow: 2px 3px #f9f9f9;*/
 }

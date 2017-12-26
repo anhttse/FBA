@@ -1,0 +1,35 @@
+﻿
+@model FBA.Models.RegisterModel.UserRegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div id="register">
+    <div class="form-title">Register</div>
+    @using (Html.BeginForm("Register", "Login", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(x => x.UserName)
+                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Username", required = "true", maxlength="150" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Password)
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password", type = "password", required = "true", maxlength = "150" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ConfirmPassword)
+                @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password", type = "password", required = "true", maxlength = "150" })
+            </div>
+            <div class="form-group text-danger">
+                @Html.DisplayTextFor(x => x.ErrorMessage)
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">Register</button>
+            </div>
+
+        </div>
+    }
+
+</div>

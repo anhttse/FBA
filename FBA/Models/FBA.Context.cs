@@ -28,7 +28,7 @@ namespace FBA.Models
         public virtual DbSet<CL> CLs { get; set; }
         public virtual DbSet<FL> FLs { get; set; }
         public virtual DbSet<PL> PLs { get; set; }
-        public virtual DbSet<SystemUser> SystemUsers { get; set; }
         public virtual DbSet<Token> Tokens { get; set; }
+        public virtual DbSet<SystemUser> SystemUsers { get; set; }
     }
 }

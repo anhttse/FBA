@@ -189,6 +189,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Extension\Common.cs" />
     <Compile Include="Extension\UserAuthorize.cs" />
+    <Compile Include="Extension\Utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -279,6 +280,12 @@
     <Content Include="Models\FBA.edmx.diagram">
       <DependentUpon>FBA.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\font\LP Allema.ttf" />
+    <Content Include="Content\font\nokio\FS NokioBold.ttf" />
+    <Content Include="Content\font\nokio\FS NokioExtraLight.ttf" />
+    <Content Include="Content\font\nokio\FS NokioLight.ttf" />
+    <Content Include="Content\font\nokio\FS NokioMedium.ttf" />
+    <Content Include="Content\font\nokio\FS NokioRegular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -300,6 +307,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

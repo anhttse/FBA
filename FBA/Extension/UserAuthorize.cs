@@ -16,14 +16,7 @@ namespace FBA.Extension
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var isAuthorized = base.AuthorizeCore(httpContext);
-            if (!isAuthorized)
-            {
-                return false;
-            }
-
             var ss = httpContext.Session[Common.UserSession].ToString();
-
             return !string.IsNullOrEmpty(ss);
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)

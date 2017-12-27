@@ -18,12 +18,15 @@
                 @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password", type = "password", required = "true", maxlength = "150" })
             </div>
             <div class="form-group">
+                
+            </div>
+            <div class="form-group">
                 @Html.LabelFor(x => x.ConfirmPassword)
                 @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password", type = "password", required = "true", maxlength = "150" })
             </div>
-            <div class="form-group text-danger">
+            @*<div class="form-group text-danger">
                 @Html.DisplayTextFor(x => x.ErrorMessage)
-            </div>
+            </div>*@
 
             <div class="form-group">
                 <button type="submit" class="btn">Register</button>

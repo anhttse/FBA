@@ -10,10 +10,10 @@ namespace FBA.Models
     public class User
     {
         [Required]
-        [DataType(DataType.Password)]
-        [StringLength(150,ErrorMessage = "The {0} must be at least {2} characters.",MinimumLength = 6)]
         public string UserName { get; set; }
         [Required]
+        [DataType(DataType.Password)]
+        [StringLength(150, ErrorMessage = "The {0} must be at least {2} characters.", MinimumLength = 6)]
         public string Password { get; set; }
     }
 }

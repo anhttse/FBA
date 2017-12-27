@@ -14,7 +14,7 @@ namespace FBA.Extension
             using (var sha = SHA256.Create())
             {
                 var hash = sha.ComputeHash(Encoding.UTF8.GetBytes(scr));
-                return Convert.ToBase64String(hash).ToLowerInvariant();
+                return Convert.ToBase64String(hash).Replace("-","").ToLowerInvariant();
 
             }
         }

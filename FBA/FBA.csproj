@@ -286,6 +286,7 @@
     <Content Include="Content\font\nokio\FS NokioLight.ttf" />
     <Content Include="Content\font\nokio\FS NokioMedium.ttf" />
     <Content Include="Content\font\nokio\FS NokioRegular.ttf" />
+    <Content Include="Content\font\Lombok.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

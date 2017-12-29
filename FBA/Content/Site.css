@@ -39,6 +39,11 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Lombok';
+    src: url('font/Lombok.otf') format('opentype');
+}
+
 body {
     padding: 0;
     font-family: "FS Nokio";
@@ -51,7 +56,72 @@ textarea {
     max-width: 500px;
 }
 
-main-content {
+#logo a {
+    font-size: 3em;
+    color: #ffffff;
+}
+
+    #logo a:hover {
+        font-size: 3.2em;
+        color: #ffdddd;
+    }
+
+.navbar {
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Lombok';
+}
+
+li {
+    list-style: none;
+}
+
+#top-right-menu a {
+    color: #ffffff;
+}
+
+#top-right-menu > ul {
+    width: 100%;
+}
+
+    #top-right-menu > ul > li:hover > a {
+        font-size: 1.1em;
+        color: #ffdddd;
+    }
+
+    #top-right-menu > ul > li:hover .sub-top-menu {
+        display: block;
+    }
+
+.sub-top-menu {
+    display: none;
+    padding-left: 16px;
+    position: absolute;
+    width: 137px;
+}
+
+    .sub-top-menu a {
+        text-decoration: none;
+        font-size: 0.8em;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+
+    .sub-top-menu :hover {
+        font-size: 0.95em;
+    }
+
+        .sub-top-menu :hover a {
+            color: #ffdddd !important;
+        }
+
+#main-menu-home ul {
+    overflow: hidden;
+}
+#main-menu-home li {
+    float: left;
+}
+.main-content {
     position: relative;
 }
 
@@ -94,19 +164,20 @@ main-content {
             background-color: #8e011b !important;
             color: #daa520 !important;
         }
+
 .btn :hover {
     background-color: #8e011b !important;
     color: #daa520 !important;
 }
 
-    #login a {
-        text-decoration: none;
-        color: #ffffff;
-    }
+#login a {
+    text-decoration: none;
+    color: #ffffff;
+}
 
-        #login a:hover {
-            color: rgba(255,220,20,60);
-        }
+    #login a:hover {
+        color: rgba(255,220,20,60);
+    }
 
 #register {
     width: 400px;

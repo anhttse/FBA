@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FBA.Extension;
 using FBA.Models;
+using FBA.Models.ChangePasswordModel;
 using FBA.Models.RegisterModel;
 
 namespace FBA.Controllers
@@ -33,6 +34,47 @@ namespace FBA.Controllers
                 return RedirectToAction("Index", "Login");
 
             }
+        }
+
+        public ActionResult Logout()
+        {
+            Session[Common.UserSession] = null;
+            return RedirectToAction("Index", "Login");
+        }
+
+        [HttpPost]
+        [AuthorizeUser]
+        public ActionResult ChangePassword(UserChangePasswordModel user)
+        {
+            var ss = Session[Common.UserSession];
+            if (ss != null)
+            {
+                try
+                {
+                    var uid = Int32.Parse(ss.ToString().Split('_')[0]);
+                    using (var db = new FBLEntities())
+                    {
+                        var us = db.SystemUsers.FirstOrDefault(x =>
+                            x.Id == uid && string.Equals(x.Password, user.OldPassword));
+                        if (us == null)
+                        {
+                            ModelState.AddModelError("OldPassword","Old password does not match.");
+                            return View();
+                        }
+
+                        us.Password = user.Password;
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet, AllowAnonymous]

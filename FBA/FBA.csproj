@@ -193,6 +193,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePasswordModel\UserChangePasswordModel.cs" />
     <Compile Include="Models\CL.cs">
       <DependentUpon>FBA.tt</DependentUpon>
     </Compile>

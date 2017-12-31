@@ -24,7 +24,7 @@ namespace FBA.Controllers
 
             using (var db = new FBLEntities())
             {
-                var rs = db.SystemUsers.AsEnumerable().FirstOrDefault(x => string.Equals(x.Username, user.UserName.Trim()) && string.Equals(x.Password,(user.Password+x.Salt).ToSHA()));
+                var rs = db.SystemUsers.AsEnumerable().FirstOrDefault(x => string.Equals(x.Username, user.UserName.Trim()) && string.Equals(x.Password, (user.Password + x.Salt).ToSHA()));
                 if (rs != null)
                 {
                     Session[Common.UserSession] = $"{rs.Id}_{rs.Username}";
@@ -42,10 +42,20 @@ namespace FBA.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+        [HttpGet]
+        [AuthorizeUser]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
         [HttpPost]
         [AuthorizeUser]
         public ActionResult ChangePassword(UserChangePasswordModel user)
         {
+
+
+
             var ss = Session[Common.UserSession];
             if (ss != null)
             {
@@ -55,15 +65,26 @@ namespace FBA.Controllers
                     using (var db = new FBLEntities())
                     {
                         var us = db.SystemUsers.FirstOrDefault(x =>
-                            x.Id == uid && string.Equals(x.Password, user.OldPassword));
-                        if (us == null)
+                            x.Id == uid);
+                        if (us != null)
                         {
-                            ModelState.AddModelError("OldPassword","Old password does not match.");
-                            return View();
-                        }
+                            var isMatch = us.Password.Equals((user.OldPassword + us.Salt).ToSHA());
+                            if (!isMatch)
+                            {
+                                ModelState.AddModelError("OldPassword", "Old password does not match.");
+                                return View();
+                            }
+                            
+                            
+                            if (ModelState.IsValid)
+                            {
+                                us.Password = (user.Password + us.Salt).ToSHA();
+                                db.SaveChanges();
+                                Extension.Notifications.AddNotification(this,"Your password has changed!",NotificationType.SUCCESS);
+                                return RedirectToAction("Index", "Home");
+                            }
 
-                        us.Password = user.Password;
-                        db.SaveChanges();
+                        }
                     }
                 }
                 catch (Exception e)
@@ -71,10 +92,11 @@ namespace FBA.Controllers
                     Console.WriteLine(e);
                     throw;
                 }
-                
+
             }
 
-            return RedirectToAction("Index", "Home");
+            return View();
+
         }
 
         [HttpGet, AllowAnonymous]
@@ -95,11 +117,11 @@ namespace FBA.Controllers
                         return View();
                     }
                     var salt = Utilities.SaltGenerate(32);
-                    var us = db.SystemUsers.Add(new SystemUser() { Username = user.UserName, Password = (user.Password+salt).ToSHA(),Salt = salt});
+                    var us = db.SystemUsers.Add(new SystemUser() { Username = user.UserName, Password = (user.Password + salt).ToSHA(), Salt = salt });
                     db.SaveChanges();
                     if (us == null)
                     {
-                        ModelState.AddModelError("Server","Something was wrong!");
+                        ModelState.AddModelError("Server", "Something was wrong!");
                         //user.ErrorMessage = "Something was wrong!";
                         return View(user);
                     }

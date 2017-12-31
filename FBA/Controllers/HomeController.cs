@@ -16,5 +16,11 @@ namespace FBA.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Reactions()
+        {
+            return View();
+        }
     }
 }

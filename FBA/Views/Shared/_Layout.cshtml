@@ -9,7 +9,9 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+<div id="notifications">
+    @Html.Partial("_Notifications")
+</div>
     <div  class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div id="logo" class="navbar-header">
@@ -29,7 +31,7 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink(rs, "Index", "Home", new { area = "" }, null)
                             <ul class="sub-top-menu">
-                                <li>@Html.ActionLink("Change password", "Logout", "Login")</li>
+                                <li>@Html.ActionLink("Change password", "ChangePassword", "Login")</li>
                                 <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                             </ul>
                         </li>

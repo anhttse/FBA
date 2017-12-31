@@ -9,6 +9,7 @@ namespace FBA.Models.RegisterModel
     public class UserRegisterModel:User
     {
         [Required]
+        [Display(Name = "Confirm password")]
         [DataType(DataType.Password)]
         [Compare("Password",ErrorMessage = "Password does not match the confirm password.")]
         public string ConfirmPassword { get; set; }

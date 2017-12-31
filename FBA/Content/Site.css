@@ -56,6 +56,10 @@ textarea {
     max-width: 500px;
 }
 
+a, a:hover {
+    text-decoration: none;
+}
+
 #logo a {
     font-size: 3em;
     color: #ffffff;
@@ -115,15 +119,60 @@ li {
             color: #ffdddd !important;
         }
 
+/*Home menu*/
+
 #main-menu-home ul {
     overflow: hidden;
 }
+
 #main-menu-home li {
     float: left;
+    margin-right: 2rem;
 }
+
+#main-menu-home a {
+    font-family: "Lombok";
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: rgba(249,249,249,0.25);
+    color: #480000;
+    border-radius: 5px;
+    font-size: 2em;
+    padding: 4rem 2rem;
+}
+
+    #main-menu-home a:hover {
+        background-color: rgba(0, 0, 0, 0.28);
+        font-size: 2.5em;
+        color: #ffffff;
+    }
+
+/*Notifications*/
+#notifications {
+    width: 21%;
+    position: absolute;
+    z-index: 1031;
+    margin: 0 auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+    #notifications .alert-success {
+        color: #ffffff;
+        background-color: #b3ff9326;
+        border-color: #d6e9c6;
+    }
+
+    #notifications .alert-dismissable .close {
+        top: -4px;
+        color: #d6e9c6;
+    }
+
 .main-content {
     position: relative;
 }
+
 
 .body-content {
     position: absolute;
@@ -137,21 +186,26 @@ li {
     z-index: 1;
 }
 
+#login, #register, #changepwd, #reaction {
+    width: 100%;
+    background-color: rgba(249,249,249,0.21);
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/*Login form*/
 #login {
     width: 400px;
     padding: 40px 100px;
-    background-color: rgba(249,249,249,0.21);
-    border-radius: 5px;
-    /*box-shadow: 2px 3px #f9f9f9;*/
 }
 
-    #login label, #register label {
+    #login label, #register label, #changepwd label {
         color: #000000;
         font-weight: bold;
         font-size: 1.1em;
     }
 
-    #login button, #register button {
+    #login button, #register button, #changepwd button {
         width: 100%;
         height: 40px;
         background-color: crimson;
@@ -160,15 +214,10 @@ li {
         border: none;
     }
 
-        #login button:hover, #register .btn :hover {
+        #login button:hover, #register .btn :hover, #changepwd .btn :hover {
             background-color: #8e011b !important;
             color: #daa520 !important;
         }
-
-.btn :hover {
-    background-color: #8e011b !important;
-    color: #daa520 !important;
-}
 
 #login a {
     text-decoration: none;
@@ -179,12 +228,22 @@ li {
         color: rgba(255,220,20,60);
     }
 
+/*Register form*/
 #register {
     width: 400px;
     padding: 40px 100px;
-    background-color: rgba(249,249,249,0.21);
-    border-radius: 5px;
-    /*box-shadow: 2px 3px #f9f9f9;*/
+}
+
+/*Change password form*/
+#changepwd {
+    width: 436px;
+    padding: 40px 100px;
+}
+
+/*Reaction form*/
+#reaction {
+    width: 50rem;
+    padding: 4rem 10rem;
 }
 
 .form-title {
@@ -198,6 +257,11 @@ li {
 }
 
 .mgsError {
+}
+
+.btn :hover {
+    background-color: #8e011b !important;
+    color: #daa520 !important;
 }
 
 .text-danger {

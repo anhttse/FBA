@@ -1,0 +1,53 @@
+﻿@using FBA.Models.ActionModels
+@model FBA.Models.ActionModels.ReactionModel
+@{
+    ViewBag.Title = "Reactions";
+}
+
+<div id="reaction">
+    <div class="form-title">Reactions</div>
+    @using (Html.BeginForm("Reactions", "Home", FormMethod.Post,new{@class= "form-horizontal" }))
+    {
+
+        <div class="container">
+            <div class="form-group">
+                @Html.LabelFor(x => x.Token,new{@class= "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.Token, new { @class = "form-control", type = "password", placeholder = "Enter your token", required = "true", maxlength = "150" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Target, new{@class= "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(x => x.Target, new SelectList(Targets.TargetList),"Select target", new {@class = "form-control"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Url, new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.Url, new { @class = "form-control", placeholder = "Enter url", required = "true", maxlength = "150" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ReactionType, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-8">
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(x => x.ReactionType, "LIKE", new {@checked = "true"})LIKE
+                    </label>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(x => x.ReactionType, "LOVE", new {  })LOVE
+                    </label>
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-sm-2"></div>
+                <button type="submit" class="btn btn-danger col-sm-10">Start</button>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+

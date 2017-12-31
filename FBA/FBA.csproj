@@ -188,12 +188,14 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Extension\Common.cs" />
+    <Compile Include="Extension\Notifications.cs" />
     <Compile Include="Extension\UserAuthorize.cs" />
     <Compile Include="Extension\Utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ChangePasswordModel\UserChangePasswordModel.cs" />
+    <Compile Include="Models\ActionModels\ReactionModel.cs" />
+    <Compile Include="Models\UserModels\UserChangePasswordModel.cs" />
     <Compile Include="Models\CL.cs">
       <DependentUpon>FBA.tt</DependentUpon>
     </Compile>
@@ -218,14 +220,14 @@
     <Compile Include="Models\PL.cs">
       <DependentUpon>FBA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RegisterModel\UserRegisterModel.cs" />
+    <Compile Include="Models\UserModels\UserRegisterModel.cs" />
     <Compile Include="Models\SystemUser.cs">
       <DependentUpon>FBA.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Token.cs">
       <DependentUpon>FBA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +291,7 @@
     <Content Include="Content\font\nokio\FS NokioRegular.ttf" />
     <Content Include="Content\font\Lombok.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -310,6 +313,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\ChangePassword.cshtml" />
+    <Content Include="Views\Shared\_Notifications.cshtml" />
+    <Content Include="Views\Home\Reactions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

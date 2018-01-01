@@ -1,0 +1,83 @@
+﻿.reaction {
+    /*width: 25px;
+    height: 25px;
+    display: inline-block;
+    transition: opacity 200ms ease;*/
+    display: inline-block;
+}
+.reaction-group {
+    display: none;
+    background: #ffffff;
+    padding: 5px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+    position: absolute;
+    left: 18px;
+    top: -10px;
+    transition: all 2s linear;
+    
+}
+
+#reaction-current {
+    -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */
+    transition: .4s ease-out;
+    transition-delay: 2s;
+}
+button {
+    background-color: #ffffff;
+    border: none;
+}
+button:hover .reaction-group {
+    display: block;
+}
+button:hover .reaction {
+    opacity: 1;
+    animation-name: reaction_delay;
+    animation-duration: .5s;
+}
+#reaction-current:hover ~ .reaction-group, .reaction-group:hover {
+    display: block !important;
+    transition: .25s ease-in-out 0s;
+}
+.fb-like {
+    background-image: url('fbicon/like.svg');
+    transition-delay: .25s;
+}
+
+.fb-love {
+    background-image: url('fbicon/love.svg');
+    transition-delay: .25s;
+}
+.fb-wow {
+    background-image: url('fbicon/wow.svg');
+    transition-delay: .25s;
+}
+.fb-haha {
+    background-image: url('fbicon/haha.svg');
+    transition-delay: .25s;
+}
+.fb-sad {
+    background-image: url('fbicon/sad.svg');
+    transition-delay: .25s;
+}
+.fb-angry {
+    background-image: url('fbicon/angry.svg');
+    transition-delay: .25s;
+}
+@keyframes reaction_delay {
+    0% {
+        width: 25px;
+        height: 25px;
+        top: 60px;
+    }
+    48% {
+        width: 30px;
+        height: 30px;
+        top: 5px;
+    }    
+    100% {
+        width: 25px;
+        height: 25px;
+        top: 0px;
+    }
+}

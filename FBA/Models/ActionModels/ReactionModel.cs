@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using FBA.Extension;
 
 namespace FBA.Models.ActionModels
 {
@@ -10,10 +12,9 @@ namespace FBA.Models.ActionModels
         public string Token { get; set; }
         public string Target { get; set; }
         public string Url { get; set; }
-        public string ReactionType { get; set; }
+        [Display(Name = "Reaction")]
+        public ReactionType ReactionType { get; set; }
+       
     }
-    public static class Targets
-    {
-        public static List<string> TargetList = new List<string>() {"Group","Home Page","Post","Friends"};
-    }
+
 }

@@ -28,7 +28,11 @@ namespace FBA
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/background/background.css"));
+                      "~/Content/background/background.css",
+                      "~/Content/fontawesome-all.min.css"));
+            bundles.Add(new StyleBundle("~/Content/icon").Include(
+                      "~/Content/fb-icon.css"
+                ));
         }
     }
 }

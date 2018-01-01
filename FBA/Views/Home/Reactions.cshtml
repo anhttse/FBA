@@ -1,4 +1,4 @@
-﻿@using FBA.Models.ActionModels
+﻿@using FBA.Extension
 @model FBA.Models.ActionModels.ReactionModel
 @{
     ViewBag.Title = "Reactions";
@@ -19,7 +19,7 @@
             <div class="form-group">
                 @Html.LabelFor(x => x.Target, new{@class= "control-label col-sm-2" })
                 <div class="col-sm-10">
-                    @Html.DropDownListFor(x => x.Target, new SelectList(Targets.TargetList),"Select target", new {@class = "form-control"})
+                    @Html.DropDownListFor(x => x.Target, new SelectList(Targets.TargetList,"value","text"),"Select target", new {@class = "form-control"})
                 </div>
             </div>
             <div class="form-group">
@@ -29,20 +29,26 @@
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.ReactionType, new { @class = "control-label col-sm-4" })
-                <div class="col-sm-8">
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(x => x.ReactionType, "LIKE", new {@checked = "true"})LIKE
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(x => x.ReactionType, "LOVE", new {  })LOVE
-                    </label>
+                @Html.LabelFor(x => x.ReactionType, new { @class = "control-label col-sm-2" ,style="padding-top:32px"})
+                <div style="padding: 20px" class="col-sm-8">
+                    <button>
+                        <a href="javascript:void(0)" id="reaction-current" class="reaction fb-like" style="margin-top: 14px"></a>
+                        <ul class="reaction-group">
+                            <li class="reaction fb-like" data-title="Like"></li>
+                            <li class="reaction fb-love"></li>
+                            <li class="reaction fb-haha"></li>
+                            <li class="reaction fb-wow"></li>
+                            <li class="reaction fb-sad"></li>
+                            <li class="reaction fb-angry"></li>
+                        </ul>
+                    </button>
                     
+
                 </div>
             </div>
             <div class="form-group">
-                <div class="control-label col-sm-2"></div>
-                <button type="submit" class="btn btn-danger col-sm-10">Start</button>
+                <div class="control-label col-sm-3"><label></label></div>
+                <button type="submit" class="btn btn-danger col-sm-8">Start</button>
             </div>
 
         </div>

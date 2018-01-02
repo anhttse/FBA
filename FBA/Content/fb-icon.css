@@ -1,69 +1,103 @@
 ﻿.reaction {
-    /*width: 25px;
+    opacity: 0;
+    width: 25px;
     height: 25px;
-    display: inline-block;
-    transition: opacity 200ms ease;*/
-    display: inline-block;
+    position: absolute;
+    transition: opacity .5s ease-in-out 1s, transform .07s ease-in-out 0s, top .07s ease-in-out 0s;
 }
+.reaction:hover {
+    transition-delay: 0s;
+    transform: scale(1.1, 1.1);
+    top: 0px
+}
+
 .reaction-group {
-    display: none;
     background: #ffffff;
-    padding: 5px;
-    -ms-border-radius: 20px;
+    width: 182px;
+    height: 30px;
     border-radius: 20px;
     position: absolute;
     left: 18px;
-    top: -10px;
-    transition: all 2s linear;
-    
+    top: 0px;
+    display: none;
 }
-
 #reaction-current {
-    -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */
-    transition: .4s ease-out;
-    transition-delay: 2s;
-}
-button {
-    background-color: #ffffff;
-    border: none;
-}
-button:hover .reaction-group {
+    background-image: url('fbicon/like.svg');
     display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
-button:hover .reaction {
-    opacity: 1;
-    animation-name: reaction_delay;
-    animation-duration: .5s;
-}
-#reaction-current:hover ~ .reaction-group, .reaction-group:hover {
-    display: block !important;
-    transition: .25s ease-in-out 0s;
-}
+    #reaction-current:hover .reaction {
+        opacity: 1;
+        animation-name: reaction_delay;
+        animation-duration: .5s;
+    }
+    #reaction-current:hover .reaction-group {
+        display: block;
+    }
 .fb-like {
     background-image: url('fbicon/like.svg');
     transition-delay: .25s;
+    left: 3px;
+    top: 2px;
 }
-
 .fb-love {
     background-image: url('fbicon/love.svg');
     transition-delay: .25s;
+    left: 33px;
+    top: 2px;
 }
 .fb-wow {
     background-image: url('fbicon/wow.svg');
     transition-delay: .25s;
+    left: 63px;
+    top: 2px;
 }
 .fb-haha {
     background-image: url('fbicon/haha.svg');
     transition-delay: .25s;
+    left: 93px;
+    top: 2px;
 }
 .fb-sad {
     background-image: url('fbicon/sad.svg');
     transition-delay: .25s;
+    left: 123px;
+    top: 2px;
 }
 .fb-angry {
     background-image: url('fbicon/angry.svg');
     transition-delay: .25s;
+    left: 153px;
+    top: 2px;
+
 }
+
+#reaction-current:hover .fb-like {
+    animation-delay: 0s
+}
+
+#reaction-current:hover .fb-love {
+    animation-delay: .05s
+}
+
+#reaction-current:hover .fb-haha {
+    animation-delay: .1s
+}
+
+#reaction-current:hover .fb-wow {
+    animation-delay: .15s
+}
+
+#reaction-current:hover .fb-sad {
+    animation-delay: .2s
+}
+
+#reaction-current:hover .fb-angry {
+    animation-delay: .25s
+}
+
 @keyframes reaction_delay {
     0% {
         width: 25px;

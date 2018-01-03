@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using FBA.Extension;
+using FBA.Models.ActionModels;
 
 namespace FBA.Controllers
 {
@@ -20,6 +17,15 @@ namespace FBA.Controllers
         [HttpGet]
         public ActionResult Reactions()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Reactions(ReactionModel model)
+        {
+            var fb = new Facebook.FacebookClient();
+            fb.AccessToken = model.Token;
+            fb.Post()
             return View();
         }
     }

@@ -18,15 +18,19 @@
     border-radius: 20px;
     position: absolute;
     left: 18px;
-    top: 0px;
+    top: -24px;
     display: none;
 }
 #reaction-current {
-    background-image: url('fbicon/like.svg');
+    background-image: url(fbicon/like.svg);
     display: block;
     width: 25px;
+    background-position: bottom;
+    background-repeat: no-repeat;
     height: 25px;
     cursor: pointer;
+    padding-top: 32px;
+    margin-left: 5px;
 }
     #reaction-current:hover .reaction {
         opacity: 1;

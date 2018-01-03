@@ -22,18 +22,18 @@
                     @Html.DropDownListFor(x => x.Target, new SelectList(Targets.TargetList, "value", "text"), "Select target", new { @class = "form-control" })
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden id="target-url">
                 @Html.LabelFor(x => x.Url, new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(x => x.Url, new { @class = "form-control", placeholder = "Enter url", required = "true", maxlength = "150" })
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.ReactionType, new { @class = "control-label col-sm-2", style = "padding-top:32px" })
-                <div style="padding: 20px" class="col-sm-8">
+            <div class="form-group" style="padding-top: 14px;">
+                @Html.LabelFor(x => x.ReactionType, new { @class = "control-label col-sm-2", style = "" })
+                <div style="" class="col-sm-8">
                     @Html.HiddenFor(x=>x.ReactionType)
                     <div id="fb-actions">
-                        <span href="javascript:void(0)" id="reaction-current" style="margin-top: 14px">
+                        <span href="javascript:void(0)" id="reaction-current" style="">
                             <ul class="reaction-group">
                                 <li class="reaction fb-like" data-title="Like"></li>
                                 <li class="reaction fb-love" data-title="Love"></li>
